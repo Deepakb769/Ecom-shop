@@ -1,0 +1,115 @@
+#root {
+  width: 100%;
+  /* max-width: 1280px; */
+  /* margin: 0 auto;
+  padding: 2rem;
+  text-align: center; */
+}
+
+*{
+  list-style: none;
+}
+
+.nav{
+  display: flex;
+  /* align-items: center; */
+  background: rgb(17, 17, 17);
+  color: white;
+}
+
+.navMenu {
+  width: 70%;
+}
+
+.navLogo {
+  width: 30%;
+  text-align: center;
+}
+
+.navLogo h1{
+  font-size: 25px;
+}
+.navMenu ul{
+  display: flex;
+  align-items: center;
+}
+
+.navMenu li{
+  padding: 0 60px;
+}
+
+.container {
+  display: flex;
+
+  max-width: 1200px;
+  margin: 0 auto;
+
+}
+
+.product-card{
+  display: flex;
+  /* margin: 0 60px; */
+  justify-content: space-evenly;
+  flex-wrap: wrap;
+}
+
+.products{
+  border: 1px solid;
+  margin: 20px;
+  /* width: 265px; */
+  padding: 5px 20px;
+}
+
+.item-description{
+  overflow: hidden;
+  /* text-overflow: ellipsis;
+  white-space: nowrap; */
+  -webkit-line-clamp: 2;
+  display: -webkit-box;
+  -webkit-box-orient: vertical;
+}
+/* .item-image{
+  width: 10px;
+  height: 70px;
+  object-fit: cover;
+} */
+
+#selected-category{
+  cursor: pointer;
+}
+
+.logo {
+  height: 6em;
+  padding: 1.5em;
+  will-change: filter;
+  transition: filter 300ms;
+}
+.logo:hover {
+  filter: drop-shadow(0 0 2em #646cffaa);
+}
+.logo.react:hover {
+  filter: drop-shadow(0 0 2em #61dafbaa);
+}
+
+@keyframes logo-spin {
+  from {
+    transform: rotate(0deg);
+  }
+  to {
+    transform: rotate(360deg);
+  }
+}
+
+@media (prefers-reduced-motion: no-preference) {
+  a:nth-of-type(2) .logo {
+    animation: logo-spin infinite 20s linear;
+  }
+}
+
+.card {
+  padding: 2em;
+}
+
+.read-the-docs {
+  color: #888;
+}
