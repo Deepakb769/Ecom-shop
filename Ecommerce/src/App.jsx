@@ -6,13 +6,13 @@ import ProductItem from './Pages/ProductItem'
 import {
   createBrowserRouter,
   RouterProvider,
-  Route,
-  Link
+  
 } from 'react-router-dom';
-import Navbar from './Components/Navbar';
+import Navigate from './Components/Navigate';
 import CartList from './Pages/CartList';
 import Wishlist from './Pages/Wishlist';
 import Footer from './Components/Footer';
+import PurchaseItem from './Pages/PurchaseItem';
 import Catagory from './Components/Catagory';
 
 function App() {
@@ -27,10 +27,6 @@ function App() {
       ...product,
       quantity : (updatedCart[product.id]?.quantity || 0) + 1,
     }
-    //   (updatedCart[productId] || 0) + 1;
-    // // Calculate quantity
-    // const count = Object.values(updatedCart).reduce((sum,qty) => sum + qty, 0);
-    // console.log(count)
     return updatedCart;
   })
 }
@@ -47,7 +43,7 @@ const router = createBrowserRouter([
        path : "/",
        element : (
        <>
-        <Navbar count={cartCount}/>
+        <Navigate count={cartCount}/>
         <div className='container'>
           {/* <Catagory /> */} 
           <ProductItem cart={cart} addToCart={addToCart}/>
@@ -60,7 +56,7 @@ const router = createBrowserRouter([
        path : "/CartList",
        element : (
        <>
-        <Navbar count={cartCount}/>
+        <Navigate count={cartCount}/>
         <CartList cart = {cart}/>
         <Footer />
       </>
@@ -70,8 +66,18 @@ const router = createBrowserRouter([
       path : "/Wishlist",
       element : (
       <>
-        <Navbar count = {cartCount}/>
+        <Navigate count = {cartCount}/>
         <Wishlist />
+        <Footer />
+      </>
+      )
+     },
+     {
+      path : "/PurchaseItem",
+      element : (
+      <>
+        <Navigate count = {cartCount}/>
+        <PurchaseItem />
         <Footer />
       </>
       )
@@ -94,7 +100,7 @@ export default App
 //   createBrowserRouter,
 //   RouterProvider,
 // } from 'react-router-dom';
-// import Navbar from './Components/Navbar';
+// import Navigate from './Components/Navigate';
 // import CartList from './Pages/CartList';
 // import Wishlist from './Pages/Wishlist';
 // import Footer from './Components/Footer';
@@ -122,7 +128,7 @@ export default App
 //       path: "/",
 //       element: (
 //         <>
-//           <Navbar count={cartCount} />
+//           <Navigate count={cartCount} />
 //           <ProductItem cart={cart} addToCart={addToCart} />
 //           <Footer />
 //         </>
@@ -132,7 +138,7 @@ export default App
 //       path: "/CartList",
 //       element: (
 //         <>
-//           <Navbar count={cartCount} />
+//           <Navigate count={cartCount} />
 //           <CartList cart={cart} />
 //           <Footer />
 //         </>
@@ -142,7 +148,7 @@ export default App
 //       path: "/Wishlist",
 //       element: (
 //         <>
-//           <Navbar count={cartCount} />
+//           <Navigate count={cartCount} />
 //           <Wishlist />
 //           <Footer />
 //         </>

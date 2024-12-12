@@ -1,6 +1,7 @@
 import React from 'react'
 import { Button } from 'react-bootstrap';
 import { Card } from 'react-bootstrap';
+import { Link } from 'react-router-dom';
 
 const CartList = ({cart}) => {
   const cartItems = Object.values(cart);
@@ -10,14 +11,16 @@ const CartList = ({cart}) => {
       {cartItems.length > 0 ? (
         <div style={{ display : 'flex', flexWrap : 'wrap', gap : '20px'}}>
           {cartItems.map((item) => (
-          <div key={item.id} className="cart-item" style={{display:'flex', alignItems:'center', gap:'10px'}}>
-            <Card style={{width : '18rem'}}>
+          <div key={item.id} className="cart-item" >
+            <Card>
               <Card.Img src={item.images} alt={item.name} style={{ width: "120px", height: "120px", objectFit: "cover"}} />
-              <Card.Body>
+              <Card.Body >
                 <Card.Text>{item.title}</Card.Text>
                 <Card.Text>{item.description}</Card.Text>
                 <Card.Text>{item.price}</Card.Text>
-                <Button variant='primary'>Buy Now</Button>
+                <Link 
+                  to = "/PurchaseItem"
+                  state = {{ item }} ><Button variant='primary'>Buy Now</Button></Link>
               </Card.Body>
             </Card>
           </div>
